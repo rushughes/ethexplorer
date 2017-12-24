@@ -19,3 +19,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+/utils/geth_data
+/utils/geth.ipc
+/utils/bc_dir
+bc_dir
+/bc_dir
