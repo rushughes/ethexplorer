@@ -1,6 +1,7 @@
 import Web3 from 'web3';
 import { FETCH_BLOCKNUMBER, FETCH_BLOCKS, FETCH_BLOCK } from './types';
-var web3 = new Web3(new Web3.providers.HttpProvider('http://127.0.0.1:8545'));
+//var web3 = new Web3(new Web3.providers.HttpProvider('http://127.0.0.1:8545'));
+var web3 = new Web3(new Web3.providers.HttpProvider('https://mainnet.infura.io/afw8WxnS3H03EgA0HaAl'));
 
 export const fetchBlockNumber = () => async dispatch => {
   console.log('fetchBlockNumber action');
