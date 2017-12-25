@@ -52,7 +52,9 @@ class Home extends Component {
       Current Block: {this.props.blockNumber}
       <table>
       <thead><tr><th>Block No</th><th>Hash</th></tr></thead>
-      {this.renderBlocks()}
+      <tbody>
+        {this.renderBlocks()}
+      </tbody>
       </table>
       </div>
     );
