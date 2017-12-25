@@ -1,1 +1,1 @@
-geth --datadir=bc_dir init genesis.json
+geth --datadir=geth_data init genesis.json
