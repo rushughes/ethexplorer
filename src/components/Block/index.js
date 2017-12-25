@@ -2,11 +2,24 @@ import { Link } from 'react-router-dom'
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchBlock } from '../../actions';
+import { withRouter } from 'react-router'
 import './style.css';
 
 class Block extends Component {
 
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('shouldComponentUpdate', nextProps, nextState);
+    return true;
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log('componentWillReceiveProps', nextProps);
+    var hash = nextProps.match.params.hash;
+    this.props.fetchBlock(hash);
+  }
+
   componentDidMount() {
+    console.log('componentDidMount');
     var hash = this.props.match.params.hash;
     this.props.fetchBlock(hash);
   }
@@ -84,4 +97,4 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default connect(mapStateToProps, { fetchBlock })(Block);
+export default withRouter(connect(mapStateToProps, { fetchBlock })(Block));
