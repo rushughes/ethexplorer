@@ -1,5 +1,5 @@
 import Web3 from 'web3';
-import { FETCH_BLOCKNUMBER, FETCH_BLOCKS } from './types';
+import { FETCH_BLOCKNUMBER, FETCH_BLOCKS, FETCH_BLOCK } from './types';
 var web3 = new Web3(new Web3.providers.HttpProvider('http://127.0.0.1:8545'));
 
 export const fetchBlockNumber = () => async dispatch => {
@@ -24,6 +24,15 @@ export const fetchBlockNumber = () => async dispatch => {
     blocks.ids.push(block.number);
     blocks.hash.push(block.hash);
   }
-  dispatch({ type: FETCH_BLOCKS, payload: blocks});
 
+  dispatch({ type: FETCH_BLOCKS, payload: blocks });
+
+};
+
+export const fetchBlock = (hash) => async dispatch => {
+  console.log('fetchBlock action', hash);
+  const block = await web3.eth.getBlock(hash);
+  console.log('Got block', block);
+
+  dispatch({ type: FETCH_BLOCK, payload: block });
 };

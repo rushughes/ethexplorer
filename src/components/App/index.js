@@ -22,7 +22,7 @@ class App extends Component {
               <Route exact path="/block" render={() => (
                 <h3>Please select a blockHash.</h3>
               )}/>
-              <Route path="/block/:blockHash" component={Block}/>
+              <Route path="/block/:hash" component={Block}/>
             </div>
         </Router>
         </div>
